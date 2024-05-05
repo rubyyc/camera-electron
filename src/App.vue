@@ -1,14 +1,9 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import Camera from './components/Camera.vue'
 </script>
 
 <template>
-  <HelloWorld msg="Vite + Vue" />
-  <el-button type="primary" size="default" @click="">3333</el-button>
-
-  <h1 class="text-3xl font-bold underline bg-red-600">
-    Hello world!
-  </h1>
+  <Camera />
 
 </template>
 
