@@ -27,11 +27,11 @@ process.env.VITE_PUBLIC = VITE_DEV_SERVER_URL
   : RENDERER_DIST
 
 // 判断是否为 macOS
-const is_mac = process.platform === "darwin"
+const is_mac = process.platform === 'darwin'
 
 // 如果是 macOS，则隐藏 dock 图标
 if (is_mac) {
-  app.dock.hide(); // - 1 -
+  app.dock.hide() // - 1 -
 }
 
 let win: BrowserWindow | null
@@ -44,7 +44,7 @@ function createWindow() {
     frame: true,
     // 窗口渲染开始的坐标
     x: 1900,
-    y: 100,
+    y: 0,
     webPreferences: {
       preload: path.join(__dirname, 'preload.mjs'),
     },
