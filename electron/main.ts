@@ -41,10 +41,12 @@ function createWindow() {
     icon: path.join(process.env.VITE_PUBLIC, 'electron-vite.svg'),
     alwaysOnTop: true,
     // 是否有标题栏和x按钮,true是有x,,false没有x但是窗口没法拖动
-    frame: true,
+    frame: false,
+    // 是否显示
+    show: true,
     // 窗口渲染开始的坐标
     x: 1900,
-    y: 0,
+    y: 100,
     webPreferences: {
       preload: path.join(__dirname, 'preload.mjs'),
     },
@@ -55,7 +57,7 @@ function createWindow() {
   win.setVisibleOnAllWorkspaces(true)
 
   // 控制缩放比例
-  win.setAspectRatio(1 / 1.0)
+  win.setAspectRatio(1 / 1)
   // win.webContents.openDevTools()
 
   // Test active push message to Renderer-process.

@@ -6,7 +6,6 @@ import Camera from './components/Camera.vue'
   <Suspense>
     <Camera />
   </Suspense>
-  8
 </template>
 
 <style scoped>
