@@ -2,7 +2,8 @@ import { createApp } from 'vue'
 
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
-
+import '@assets/css/tailwind.css'
+import '@assets/css/style.css'
 import App from './App.vue'
 
 createApp(App)

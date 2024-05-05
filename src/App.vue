@@ -4,10 +4,12 @@ import HelloWorld from './components/HelloWorld.vue'
 
 <template>
   <HelloWorld msg="Vite + Vue" />
-  <main class="">
-    <el-button type="primary" size="default" @click="">3333</el-button>
+  <el-button type="primary" size="default" @click="">3333</el-button>
 
-  </main>
+  <h1 class="text-3xl font-bold underline bg-red-600">
+    Hello world!
+  </h1>
+
 </template>
 
 <style scoped>
