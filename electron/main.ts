@@ -55,7 +55,8 @@ function createWindow() {
   win.setVisibleOnAllWorkspaces(true)
 
   // 控制缩放比例
-  win.setAspectRatio(1 / 1)
+  win.setAspectRatio(1 / 1.0)
+  // win.webContents.openDevTools()
 
   // Test active push message to Renderer-process.
   win.webContents.on('did-finish-load', () => {

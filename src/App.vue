@@ -3,8 +3,10 @@ import Camera from './components/Camera.vue'
 </script>
 
 <template>
-  <Camera />
-
+  <Suspense>
+    <Camera />
+  </Suspense>
+  8
 </template>
 
 <style scoped>

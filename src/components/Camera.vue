@@ -1,8 +1,12 @@
 <template>
-  <div class="main">Camera</div>
+    <div class="main">
+      {{devices}}
+    </div>
 </template>
 
 <script setup lang="ts">
+const devices = await navigator.mediaDevices.enumerateDevices()
+console.log(devices);
 </script>
 
 <style lang="scss" scoped>
