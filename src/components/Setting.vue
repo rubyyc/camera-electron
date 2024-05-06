@@ -1,9 +1,9 @@
 <template>
   <main class="bg-[#2c3e50] w-screen h-screen p-5">
     <h2 class="text-gray-50 text-center text-sm mb-5 opacity-70">参数设置1</h2>
-    <el-form class="no-drag-area"  label-position="top" ref="form" label-width="80px" :inline="false" size="large">
+    <el-form label-position="top" ref="form" :inline="false" size="large" >
       <el-form-item>
-        <el-select  v-model="deviceId" placeholder="请选择摄像头" @change="$forceUpdate()" clearable filterable>
+        <el-select  v-model="deviceId" placeholder="请选择摄像头"  clearable filterable>
           <el-option v-for="item in cameras"
             :key="item.deviceId"
             :label="item.label"
@@ -12,8 +12,8 @@
         </el-select>
 
       </el-form-item>
-      <el-form-item class="mt-20">
-        <el-button class="no-drag-area" type="success" @click="onSubmit">保存</el-button>
+      <el-form-item class="mt-10 bg-red-500 flex">
+        <el-button class="flex-1" type="success" size="large" @click="onSubmit">保存</el-button>
       </el-form-item>
     </el-form>
 
