@@ -1,10 +1,10 @@
 <template>
   <main class="bg-[#2c3e50] w-screen h-screen p-5">
     <h2 class="text-gray-50 text-center text-sm mt-6 mb-5 opacity-70">参数设置</h2>
-    {{ initConfig }}
+    {{ config }}
     <el-form label-position="top" ref="form" :inline="false" size="large" >
       <el-form-item>
-        <el-select  v-model="initConfig.deviceId" placeholder="请选择摄像头"  clearable filterable>
+        <el-select  v-model="config.deviceId" placeholder="请选择摄像头"  clearable filterable>
           <el-option v-for="item in cameras"
             :key="item.deviceId"
             :label="item.label"
@@ -14,7 +14,7 @@
 
       </el-form-item>
       <el-form-item class="mt-10 bg-red-500 flex">
-        <el-button class="flex-1" type="success" size="large" @click="onSubmit">保存</el-button>
+        <el-button class="flex-1" type="success" size="large" @click="updateConfig">保存</el-button>
       </el-form-item>
     </el-form>
 
@@ -22,22 +22,15 @@
 </template>
 
 <script setup lang="ts">
-import {ref} from 'vue'
 import useConfig from '@components/composables/useConfig';
 
-const {initConfig} = useConfig()
+const {config,updateConfig} = useConfig()
 
 const devices = await navigator.mediaDevices.enumerateDevices()
 console.log(devices);
 
 const cameras = devices.filter(d => d.kind.includes('video'))
 
-const deviceId = ref('')
-const form = ref('')
-
-const onSubmit = () => {
-  console.log('click');
-}
 </script>
 
 <style lang="scss" scoped>

@@ -1,30 +1,28 @@
 import { ref } from 'vue'
 
 type ConfigType = {
-  deviceId: String
-  page: String
+  deviceId: string
+  page: string
 }
 
 // 响应数据
-const initConfig = ref<ConfigType>({
-  deviceId: 'xxx',
+const initConfig = {
+  deviceId: 'select your camera',
   page: 'camera',
-})
-
-const localConfig = localStorage.getItem('config')
-
-const getConfig = () => {
-  return localConfig ? localConfig : initConfig
-}
-
-const updateConfig = (config: ConfigType) => {
-  localStorage.setItem('config', JSON.stringify(config))
 }
 
 export default () => {
+  const cache = localStorage.getItem('config')
+
+  const data = cache ? (JSON.parse(cache) as ConfigType) : initConfig
+
+  const config = ref(data)
+
+  const updateConfig = () => {
+    localStorage.setItem('config', JSON.stringify(config.value))
+  }
   return {
-    initConfig,
+    config,
     updateConfig,
-    getConfig,
   }
 }
