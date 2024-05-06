@@ -1,6 +1,6 @@
 <template>
   <main class="bg-[#2c3e50] w-screen h-screen p-5">
-    <h2 class="text-gray-50 text-center text-sm mb-5 opacity-70">参数设置1</h2>
+    <h2 class="text-gray-50 text-center text-sm mt-6 mb-5 opacity-70">参数设置</h2>
     <el-form label-position="top" ref="form" :inline="false" size="large" >
       <el-form-item>
         <el-select  v-model="deviceId" placeholder="请选择摄像头"  clearable filterable>
