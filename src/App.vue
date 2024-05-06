@@ -1,10 +1,14 @@
 <script setup lang="ts">
-import Camera from './components/Camera.vue'
+// import Camera from '@components/Camera.vue'
+import Setting from '@components/Setting.vue'
 </script>
 
 <template>
-  <Suspense>
+  <!-- <Suspense>
     <Camera />
+  </Suspense> -->
+  <Suspense>
+    <Setting />
   </Suspense>
 </template>
 

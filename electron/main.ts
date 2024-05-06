@@ -44,6 +44,12 @@ function createWindow() {
     frame: false,
     // 是否显示
     show: true,
+    width: 300,
+    height: 300,
+    minHeight: 250,
+    minWidth: 250,
+    maxHeight: 500,
+    maxWidth: 500,
     // 窗口渲染开始的坐标
     x: 1900,
     y: 100,
@@ -58,7 +64,7 @@ function createWindow() {
 
   // 控制缩放比例
   win.setAspectRatio(1 / 1)
-  // win.webContents.openDevTools()
+  win.webContents.openDevTools()
 
   // Test active push message to Renderer-process.
   win.webContents.on('did-finish-load', () => {

@@ -1,6 +1,6 @@
 <template>
-  <div class="main">
-    <video></video>
+  <div class="w-screen h-screen flex">
+    <video class="object-cover"></video>
     <div id="errorMsg"></div>
   </div>
 </template>
@@ -64,8 +64,6 @@ function errorMsg(msg, error) {
 </script>
 
 <style lang="scss" scoped>
-.main{
-  // background-color: red;
-}
+
 </style>
 
