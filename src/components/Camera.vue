@@ -1,5 +1,6 @@
 <template>
   <div class="w-screen h-screen flex">
+    {{ initConfig }}
     <video class="object-cover"></video>
     <div id="errorMsg"></div>
   </div>
@@ -9,14 +10,17 @@
 // const devices = await navigator.mediaDevices.enumerateDevices()
 // console.log(devices);
 import { onMounted } from 'vue'
+import useConfig from '@components/composables/useConfig';
+
+const { initConfig } = useConfig()
 
 onMounted(() => {
   // Put variables in global scope to make them available to the browser console.
 var video = document.querySelector("video");
 var constraints = (window.constraints = {
   audio: false,
-  video: true,
-});
+  video: {deviceId: initConfig.value.deviceId},
+} as MediaStreamConstraints);
 var errorElement = document.querySelector("#errorMsg");
 
 navigator.mediaDevices
