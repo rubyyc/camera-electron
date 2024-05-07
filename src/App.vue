@@ -20,7 +20,7 @@ const updatePage = ()=>{
 <template>
 
   <Suspense>
-    <main class="relative">
+    <main class="relative" >
         <SettingIcon @click="updatePage" v-if="config.page == 'camera'" class="no-drag z-10 absolute left-1/2 -translate-x-1/2 mt-3 cursor-pointer" theme="outline" size="24" fill="#7ed321" />
 
         <CameraFive @click="updatePage" v-if="config.page == 'setting'" class="no-drag z-10 absolute left-1/2 -translate-x-1/2 mt-3 cursor-pointer" theme="outline" size="24" fill="#7ed321" />

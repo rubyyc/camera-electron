@@ -1,10 +1,8 @@
 <template>
-  <main class="bg-[#2c3e50] w-screen h-screen p-5">
-    <h2 class="text-gray-50 text-center text-sm mt-6 mb-5 opacity-70">参数设置</h2>
-    {{ config }}
-    <el-form label-position="top" ref="form" :inline="false" size="large" >
-      <el-form-item>
-        <el-select  v-model="config.deviceId" placeholder="请选择摄像头"  clearable filterable>
+  <main class="bg-[#2c3e50] w-screen h-screen p-5 flex flex-col gap-4 py-10" :style="`border: solid ${config.borderWidth}px ${config.borderColor}`">
+    <h2 class="text-gray-50 text-center text-sm opacity-70">参数设置</h2>
+
+        <el-select class="no-drag"  v-model="config.deviceId" placeholder="请选择摄像头"  clearable filterable>
           <el-option v-for="item in cameras"
             :key="item.deviceId"
             :label="item.label"
@@ -12,12 +10,13 @@
           </el-option>
         </el-select>
 
-      </el-form-item>
-      <el-form-item class="mt-10 bg-red-500 flex">
-        <el-button class="flex-1" type="success" size="large" @click="updateConfig">保存</el-button>
-      </el-form-item>
-    </el-form>
-
+        <el-input-number class="no-drag w-full" size="large" v-model="config.borderWidth" placeholder="请输入边框宽度"></el-input-number>
+        <el-input class="no-drag" v-model="config.borderColor" placeholder="请输入边框颜色" size="large" clearable></el-input>
+        <a
+         href="https://www.rubyc.cn"
+         target="_blank"
+         class="no-drag text-center opacity-70  text-teal-100 hover:text-yellow-400"
+         >苑畅的博客</a>
   </main>
 </template>
 
@@ -27,7 +26,7 @@ import { useConfigStore } from '@/stores/useConfigStore';
 
 // const {config,updateConfig} = useConfig()
 
-const {config,updateConfig} = useConfigStore()
+const {config} = useConfigStore()
 
 const devices = await navigator.mediaDevices.enumerateDevices()
 console.log(devices);

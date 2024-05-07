@@ -1,5 +1,5 @@
 <template>
-  <div class="w-screen h-screen flex">
+  <div class="w-screen h-screen flex" :style="`border: solid ${config.borderWidth}px ${config.borderColor}`">
     <video class="object-cover"></video>
     <div id="errorMsg"></div>
   </div>

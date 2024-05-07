@@ -1,1 +1,1 @@
-*{padding:0;margin:0;box-sizing:border-box}body,.drag{-webkit-app-region:drag;--mx-menu-placeholder-width: 10px !important}html{-webkit-app-region:drag;overflow:hidden}.no-drag,input,form,select,textarea,option{-webkit-app-region:no-drag}
+*{padding:0;margin:0;box-sizing:border-box}body,.drag{-webkit-app-region:drag;--mx-menu-placeholder-width: 10px !important}html{-webkit-app-region:drag}.no-drag,input,form,select,textarea,option{-webkit-app-region:no-drag}

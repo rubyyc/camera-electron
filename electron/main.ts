@@ -1,8 +1,7 @@
-import { app, BrowserWindow } from 'electron'
+import { app, BrowserWindow, shell } from 'electron'
 import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
-
 const require = createRequire(import.meta.url)
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -65,6 +64,12 @@ function createWindow() {
   // 控制缩放比例
   win.setAspectRatio(1 / 1)
   win.webContents.openDevTools()
+
+  // 拦截a链接,用默认浏览器打开
+  win.webContents.setWindowOpenHandler((details) => {
+    shell.openExternal(details.url)
+    return { action: 'deny' }
+  })
 
   // Test active push message to Renderer-process.
   win.webContents.on('did-finish-load', () => {
