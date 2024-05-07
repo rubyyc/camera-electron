@@ -6,9 +6,12 @@ import '@assets/css/tailwind.css'
 import '@assets/css/style.scss'
 import '@assets/css/global.scss'
 import App from './App.vue'
+import { createPinia } from 'pinia'
 
+const pinia = createPinia()
 createApp(App)
   .use(ElementPlus)
+  .use(pinia)
   .mount('#app')
   .$nextTick(() => {
     // Use contextBridge

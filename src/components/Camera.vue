@@ -8,17 +8,19 @@
 <script setup lang="ts">
 // const devices = await navigator.mediaDevices.enumerateDevices()
 // console.log(devices);
+import { useConfigStore } from '@/stores/useConfigStore';
 import { onMounted } from 'vue'
-import useConfig from '@components/composables/useConfig';
+// import useConfig from '@components/composables/useConfig';
 
-const { config } = useConfig()
+// const { config } = useConfig()
+const { config } = useConfigStore()
 
 onMounted(() => {
   // Put variables in global scope to make them available to the browser console.
 var video = document.querySelector("video");
 var constraints = (window.constraints = {
   audio: false,
-  video: {deviceId: config.value.deviceId},
+  video: {deviceId: config.deviceId},
 } as MediaStreamConstraints);
 var errorElement = document.querySelector("#errorMsg");
 

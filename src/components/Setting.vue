@@ -22,9 +22,12 @@
 </template>
 
 <script setup lang="ts">
-import useConfig from '@components/composables/useConfig';
+import { useConfigStore } from '@/stores/useConfigStore';
+// import useConfig from '@components/composables/useConfig';
 
-const {config,updateConfig} = useConfig()
+// const {config,updateConfig} = useConfig()
+
+const {config,updateConfig} = useConfigStore()
 
 const devices = await navigator.mediaDevices.enumerateDevices()
 console.log(devices);

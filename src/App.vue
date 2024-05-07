@@ -2,13 +2,15 @@
 import Camera from '@components/Camera.vue'
 import Setting from '@components/Setting.vue'
 import { Setting as SettingIcon, CameraFive} from '@icon-park/vue-next'
-import useConfig from '@components/composables/useConfig';
+// import useConfig from '@components/composables/useConfig';
+import { useConfigStore } from './stores/useConfigStore';
 
-const { config,updateConfig } = useConfig()
+// const { config,updateConfig } = useConfig()
+const { config,updateConfig} = useConfigStore()
 const updatePage = ()=>{
-  const page = config.value.page
+  const page = config.page
 
-  config.value.page = page == 'setting' ? 'camera' : 'setting'
+  config.page = page == 'setting' ? 'camera' : 'setting'
 
   updateConfig()
 }
