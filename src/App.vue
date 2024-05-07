@@ -5,9 +5,7 @@ import { Setting as SettingIcon, CameraFive} from '@icon-park/vue-next'
 import useConfig from '@components/composables/useConfig';
 
 const { config,updateConfig } = useConfig()
-
 const updatePage = ()=>{
-
   const page = config.value.page
 
   config.value.page = page == 'setting' ? 'camera' : 'setting'
