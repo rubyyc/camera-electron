@@ -1,4 +1,11 @@
-import electron, { app, BrowserWindow, ipcMain, shell } from 'electron'
+import electron, {
+  app,
+  BrowserWindow,
+  ipcMain,
+  Menu,
+  MenuItemConstructorOptions,
+  shell,
+} from 'electron'
 import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
@@ -116,4 +123,19 @@ ipcMain.on('windowMoving', (e, { mouseX, mouseY }) => {
 ipcMain.on('windowMoved', () => {
   // console.log('moved end')
   // Do somehting when dragging stop
+})
+
+// 右键退出
+ipcMain.on('quit', () => {
+  const template = [
+    {
+      label: '退出',
+      click: () => {
+        app.quit()
+      },
+    },
+  ] as MenuItemConstructorOptions
+
+  const menu = Menu.buildFromTemplate(template)
+  menu.popup()
 })

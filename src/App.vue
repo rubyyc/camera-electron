@@ -20,12 +20,20 @@ const moveWindow = ()=> {
   animationId = requestAnimationFrame(moveWindow);
 }
 
-const onMouseDown = (e)=>{
-  mouseX = e.clientX;
-  mouseY = e.clientY;
+const onMouseDown = (e) => {
+  console.log(e.button);
+  // 监控鼠标左键按下
+  if (e.button == 0) {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
 
-  document.addEventListener('mouseup', onMouseUp)
-  requestAnimationFrame(moveWindow);
+    document.addEventListener('mouseup', onMouseUp)
+    requestAnimationFrame(moveWindow);
+  }
+  // 监控鼠标右键按下,显示退出
+  if (e.button == 2) {
+    window.ipcRenderer.send('quit')
+  }
 }
 
 function onMouseUp() {
@@ -33,8 +41,6 @@ function onMouseUp() {
   document.removeEventListener('mouseup', onMouseUp)
   cancelAnimationFrame(animationId)
 }
-
-
 
 
 </script>
