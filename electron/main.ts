@@ -1,4 +1,4 @@
-import { app, BrowserWindow, shell } from 'electron'
+import electron, { app, BrowserWindow, ipcMain, shell } from 'electron'
 import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
@@ -106,3 +106,14 @@ app.on('activate', () => {
 })
 
 app.whenReady().then(createWindow)
+
+ipcMain.on('windowMoving', (e, { mouseX, mouseY }) => {
+  // console.log('moving')
+  const { x, y } = electron.screen.getCursorScreenPoint()
+  win.setPosition(x - mouseX, y - mouseY)
+})
+
+ipcMain.on('windowMoved', () => {
+  // console.log('moved end')
+  // Do somehting when dragging stop
+})

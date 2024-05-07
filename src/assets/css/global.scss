@@ -2,26 +2,12 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  // background-color: #0e0e0e;
-  // font-size: 40px;
 }
 
-body,
-.drag {
-  -webkit-app-region: drag;
+body {
   --mx-menu-placeholder-width: 10px !important;
 }
 
 html {
-  -webkit-app-region: drag;
   overflow: hidden;
-}
-
-.no-drag,
-input,
-form,
-select,
-textarea,
-option {
-  -webkit-app-region: no-drag;
 }
