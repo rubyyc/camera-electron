@@ -7,8 +7,10 @@ import '@assets/css/style.scss'
 import '@assets/css/global.scss'
 import App from './App.vue'
 import { createPinia } from 'pinia'
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 
 const pinia = createPinia()
+pinia.use(piniaPluginPersistedstate)
 createApp(App)
   .use(ElementPlus)
   .use(pinia)
