@@ -1,6 +1,6 @@
 <template>
-  <div class="w-screen h-screen flex" :style="`border: solid ${config.borderWidth}px ${config.borderColor}`">
-    <video class="object-cover"></video>
+  <div class="w-screen h-screen flex" :class="{'rounded-full': config.rounded}" :style="`border: solid ${config.borderWidth}px ${config.borderColor}`">
+    <video class="object-cover" :class="{'rounded-full': config.rounded}"></video>
     <div id="errorMsg"></div>
   </div>
 </template>

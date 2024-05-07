@@ -52,6 +52,9 @@ function createWindow() {
     // 窗口渲染开始的坐标
     x: 1900,
     y: 100,
+    // 背景透明
+    transparent: true,
+    autoHideMenuBar: true,
     webPreferences: {
       preload: path.join(__dirname, 'preload.mjs'),
     },

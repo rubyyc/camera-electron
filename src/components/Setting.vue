@@ -10,7 +10,7 @@
           </el-option>
         </el-select>
 
-        <el-input-number class="no-drag w-full" size="large" v-model="config.borderWidth" placeholder="请输入边框宽度"></el-input-number>
+        <el-input-number :max="15" :min="0" class="no-drag w-full" size="large" v-model="config.borderWidth" placeholder="请输入边框宽度"></el-input-number>
         <el-input class="no-drag" v-model="config.borderColor" placeholder="请输入边框颜色" size="large" clearable></el-input>
         <a
          href="https://www.rubyc.cn"

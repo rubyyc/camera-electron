@@ -9,6 +9,7 @@ export const useConfigStore = defineStore(
       deviceId: '',
       borderWidth: '10',
       borderColor: '#ff4500',
+      rounded: false
     })
 
     const updateConfig = () => {}
