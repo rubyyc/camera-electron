@@ -5,10 +5,13 @@ import electron, {
   Menu,
   MenuItemConstructorOptions,
   shell,
+  Tray,
+  nativeImage,
 } from 'electron'
 import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
+// import createTray from './tray'
 const require = createRequire(import.meta.url)
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -35,11 +38,6 @@ process.env.VITE_PUBLIC = VITE_DEV_SERVER_URL
 // 判断是否为 macOS
 const is_mac = process.platform === 'darwin'
 
-// 如果是 macOS，则隐藏 dock 图标
-if (is_mac) {
-  app.dock.hide() // - 1 -
-}
-
 let win: BrowserWindow | null
 
 function createWindow() {
@@ -56,6 +54,8 @@ function createWindow() {
     minWidth: 250,
     maxHeight: 500,
     maxWidth: 500,
+    // 隐藏任务栏
+    skipTaskbar: false,
     // 窗口渲染开始的坐标
     x: 1900,
     y: 100,
@@ -112,7 +112,32 @@ app.on('activate', () => {
   }
 })
 
-app.whenReady().then(createWindow)
+// 如果是 macOS，则隐藏 dock 图标
+if (is_mac) {
+  console.log('ismac')
+  app.dock.hide() // - 1 -
+
+  console.log(app.dock.isVisible())
+}
+
+const createTray = () => {
+  const icon = nativeImage.createFromPath(
+    process.platform == 'darwin'
+      ? '/Users/yuanchang/electron/houdunren/camera-electron/electron/images/trayTemplate@2x.png'
+      : '/Users/yuanchang/electron/houdunren/camera-electron/electron/imagess/windowTray.png'
+  )
+  const tray = new Tray(icon)
+
+  const contextMenu = Menu.buildFromTemplate([{ label: '退出', role: 'quit' }])
+  tray.setToolTip('Rubyc的摄像头')
+  tray.setContextMenu(contextMenu)
+  // tray.setTitle('苑畅')
+}
+
+app.whenReady().then(() => {
+  createWindow()
+  createTray()
+})
 
 ipcMain.on('windowMoving', (e, { mouseX, mouseY }) => {
   // console.log('moving')
@@ -139,3 +164,5 @@ ipcMain.on('quit', () => {
   const menu = Menu.buildFromTemplate(template)
   menu.popup()
 })
+
+// 系统图标

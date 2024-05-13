@@ -20,7 +20,7 @@ const moveWindow = ()=> {
   animationId = requestAnimationFrame(moveWindow);
 }
 
-const onMouseDown = (e) => {
+const onMouseDown = (e: MouseEvent) => {
   console.log(e.button);
   // 监控鼠标左键按下
   if (e.button == 0) {
